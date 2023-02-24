@@ -1,0 +1,6 @@
+#!/bin/bash
+
+IMAGE="publiocavalcante/php81-laravel:xdebug"
+
+docker build -t $IMAGE . --no-cache
+docker push $IMAGE

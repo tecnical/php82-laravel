@@ -1,0 +1,6 @@
+#!/bin/bash
+
+IMAGE="publiocavalcante/php81-laravel"
+
+docker build -t $IMAGE . --no-cache
+docker push $IMAGE
