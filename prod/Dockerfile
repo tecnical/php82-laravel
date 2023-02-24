@@ -1,8 +1,20 @@
 FROM publiocavalcante/php81
 
-ENV PORT=9000
+#ARG uid=1000
+#ARG gid=1000
+
+COPY start /usr/local/bin/start
+RUN #chmod u+x /usr/local/bin/start
+RUN chmod a+x /usr/local/bin/start
 
 # Switch to user
 USER ${uid}:${gid}
 
-CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port ${PORT}"]
+# Building process
+#COPY html/ /var/www/html/
+#RUN composer install # --no-dev
+#RUN chown -R www-data:www-data /var/www/html/
+#RUN chmod -R 777 /var/www/html/storage/logs
+#RUN chmod -R 777 /var/www/html/storage/framework
+
+CMD ["/usr/local/bin/start"]
