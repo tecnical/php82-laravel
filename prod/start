@@ -10,6 +10,8 @@ if [ ! -d "$VENDOR" ]; then
     echo "You need to install vendors in the app"
     tail -f /dev/null
 else
+  chmod -R 755 /var/www/html/storage*
+  chmod -R 755 /var/www/html/bootstrap/cache*
 
   if [ "$env" != "local" ]; then
     echo "Caching configuration..."

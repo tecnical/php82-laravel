@@ -1,7 +1,10 @@
 FROM publiocavalcante/php81
 
-ENV PORT=9000
+ENV PORT=80
+ARG UID=1000
+ARG GID=1000
 
+USER root:root
 # Installing XDebug
 RUN apk add php81-xdebug && \
     echo \
@@ -14,6 +17,6 @@ RUN apk add php81-xdebug && \
         >> /etc/php81/php.ini
 
 # Switch to user
-USER ${uid}:${gid}
+USER "${UID}":"${GID}"
 
 CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port ${PORT}"]

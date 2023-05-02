@@ -1,14 +1,15 @@
 FROM publiocavalcante/php81
 
-#ARG uid=1000
-#ARG gid=1000
+ARG UID=1000
+ARG GID=1000
 
+USER root:root
 COPY start /usr/local/bin/start
-RUN #chmod u+x /usr/local/bin/start
 RUN chmod a+x /usr/local/bin/start
 
 # Switch to user
-USER ${uid}:${gid}
+USER "${UID}":"${GID}"
+#USER suporte:suporte
 
 # Building process
 #COPY html/ /var/www/html/
@@ -18,3 +19,4 @@ USER ${uid}:${gid}
 #RUN chmod -R 777 /var/www/html/storage/framework
 
 CMD ["/usr/local/bin/start"]
+
