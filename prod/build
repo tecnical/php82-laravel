@@ -3,7 +3,7 @@
 export UID=$(id -u)
 export GID=$(id -g)
 
-IMAGE="publiocavalcante/php81-laravel"
+IMAGE="publiocavalcante/php82-laravel"
 
 docker build --build-arg UID="${UID}" \
   --build-arg GID="${GID}" \

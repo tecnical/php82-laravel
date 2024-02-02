@@ -1,4 +1,4 @@
-FROM publiocavalcante/php81
+FROM publiocavalcante/php82
 
 ARG UID=1000
 ARG GID=1000
@@ -9,14 +9,6 @@ RUN chmod a+x /usr/local/bin/start
 
 # Switch to user
 USER "${UID}":"${GID}"
-#USER suporte:suporte
-
-# Building process
-#COPY html/ /var/www/html/
-#RUN composer install # --no-dev
-#RUN chown -R www-data:www-data /var/www/html/
-#RUN chmod -R 777 /var/www/html/storage/logs
-#RUN chmod -R 777 /var/www/html/storage/framework
 
 CMD ["/usr/local/bin/start"]
 

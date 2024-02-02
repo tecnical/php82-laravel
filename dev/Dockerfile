@@ -1,4 +1,4 @@
-FROM publiocavalcante/php81
+FROM publiocavalcante/php82
 
 ENV PORT=80
 ARG UID=1000
@@ -6,7 +6,7 @@ ARG GID=1000
 
 USER root:root
 # Installing XDebug
-RUN apk add php81-xdebug && \
+RUN apk add php82-xdebug && \
     echo \
         $'\n'[xdebug] \
         $'\n'zend_extension=xdebug \
@@ -14,9 +14,10 @@ RUN apk add php81-xdebug && \
         $'\n'xdebug.discover_client_host=0 \
         $'\n'xdebug.client_host=host.docker.internal \
         $'\n'xdebug.start_with_request=yes \
-        >> /etc/php81/php.ini
+        >> /etc/php82/php.ini
 
 # Switch to user
 USER "${UID}":"${GID}"
 
-CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port ${PORT}"]
+CMD ["sh", "-c", "php artisan serve --host=localhost --port ${PORT}"]
+

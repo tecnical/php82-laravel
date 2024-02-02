@@ -4,7 +4,7 @@ export UID=$(id -u)
 export GID=$(id -g)
 export USER=$(whoami)
 
-IMAGE="publiocavalcante/php81-laravel:xdebug"
+IMAGE="publiocavalcante/php82-laravel:xdebug"
 
 docker build --build-arg UID=$UID \
   --build-arg GID=$GID \
