@@ -6,8 +6,9 @@ ARG GID=1000
 
 USER root:root
 # Installing XDebug
-RUN apk add php82-xdebug && \
-    echo \
+RUN apk add php82-xdebug \
+    && apk cache clean \
+    && echo \
         $'\n'[xdebug] \
         $'\n'zend_extension=xdebug \
         $'\n'xdebug.mode=debug \
